@@ -14,8 +14,6 @@ export default class MyApp extends React.Component {
         const onCancel = (data) => {
             // User pressed "cancel" or close Paypal's popup!
             console.log('The payment was cancelled!', data);
-            
-
             // You can bind the "data" object's value to your state or props or whatever here, please see below for sample returned data
         }
  
@@ -43,14 +41,7 @@ export default class MyApp extends React.Component {
  
         // NB. You can also have many Paypal express checkout buttons on page, just pass in the correct amount and they will work!
         return (
-            <PaypalExpressBtn 
-            env={env} 
-            client={client} 
-            currency={currency} 
-            total={this.props.total} 
-            onError={onError} 
-            onSuccess={onSuccess} 
-            onCancel={onCancel} />
+            <PaypalExpressBtn env={env} client={client} currency={currency} total={this.props.total} onError={onError} onSuccess={onSuccess} onCancel={onCancel} />
         );
     }
 }
