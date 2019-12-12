@@ -52,7 +52,7 @@ class ProductProvider extends Component {
             return {products:tempProducts, cart:[...this.state.cart, product]};
         },
         ()=>{
-            this.addTotal();
+            this.addTotals();
         });
     };
     openModal = id=>{
@@ -80,7 +80,7 @@ increment = (id) =>{
             cart:[...tempCart]
         };
     },()=>{
-        this.addTotal();
+        this.addTotals();
     });
 };
 decrement = (id) =>{
@@ -100,7 +100,7 @@ decrement = (id) =>{
                 cart:[...tempCart]
             };
         },()=>{
-            this.addTotal();
+            this.addTotals();
         });
     }
 };
@@ -123,7 +123,7 @@ removeItem = (id) => {
         };
     },
     ()=>{
-        this.addTotal();
+        this.addTotals();
     }
     );
 };
@@ -132,11 +132,11 @@ clearCart = () =>{
         return {cart: []};
     }, ()=>{
         this.setProducts();
-        this.addTotal();
+        this.addTotals();
     });
     
 };
-addTotal = () =>{
+addTotals = () =>{
     let subTotal = 0;
     this.state.cart.map(item =>(subTotal += item.total));
     const tempTax = subTotal * 0.1;
